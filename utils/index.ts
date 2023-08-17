@@ -1,4 +1,5 @@
 import {fetch} from "next/dist/compiled/@edge-runtime/primitives";
+
 export const fetchCars = async () => {
     const header = {
         'X-Api-Key': 'pdr0Mue0amTFZBvBVv6y4w==nEU75u58ujNCTdBC'
@@ -7,3 +8,4 @@ export const fetchCars = async () => {
     const result = await response.json()
     return result
 }
+
