@@ -1,4 +1,4 @@
-import Hero from './Hero'
-import CustomButton from "@/components/CustomButton";
+import Hero from './Hero';
+import CustomButton from '@/components/CustomButton';
 
-export {Hero, CustomButton}
+export { Hero, CustomButton };

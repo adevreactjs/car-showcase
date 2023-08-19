@@ -1,0 +1,17 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "css.validate": false,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "files.associations": {
+    "*.css": "tailwindcss"
+   },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+
+}
