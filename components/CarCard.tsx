@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { CarProps } from '@/types';
 import Image from 'next/image';
 import { CustomButton } from '.';
+import CarDetails from './CarDetails';
 
 interface CarCardProps {
   car: CarProps;
@@ -70,6 +71,7 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
           />
         </div>
       </div>
+      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car}/>
     </div>
   );
 };
