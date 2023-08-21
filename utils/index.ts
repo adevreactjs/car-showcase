@@ -1,3 +1,4 @@
+import { CarProps } from "@/types";
 import {fetch} from "next/dist/compiled/@edge-runtime/primitives";
 
 export const fetchCars = async () => {

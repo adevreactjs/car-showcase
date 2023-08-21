@@ -4,6 +4,7 @@ import { CarProps } from '@/types';
 import { Dialog, Transition } from '@headlessui/react';
 import { FC, Fragment } from 'react';
 import Image from 'next/image';
+import { generateCarImageUrl } from './CarCard';
 
 interface CarDetailsProps {
   isOpen: boolean;
@@ -52,7 +53,7 @@ const CarDetails: FC<CarDetailsProps> = ({ isOpen, closeModal, car }) => {
                   <div className='flex-1 flex flex-col gap-3'>
                     <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
                       <Image
-                        src='/hero.png'
+                        src={generateCarImageUrl(car)}
                         alt='car'
                         fill={true}
                         priority={true}
@@ -62,7 +63,7 @@ const CarDetails: FC<CarDetailsProps> = ({ isOpen, closeModal, car }) => {
                     <div className='flex gap-3'>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                         <Image
-                          src='/hero.png'
+                          src={generateCarImageUrl(car, '29')}
                           alt='hero'
                           fill={true}
                           priority={true}
@@ -71,7 +72,7 @@ const CarDetails: FC<CarDetailsProps> = ({ isOpen, closeModal, car }) => {
                       </div>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                         <Image
-                          src='/hero.png'
+                          src={generateCarImageUrl(car, '33')}
                           alt='hero'
                           fill={true}
                           priority={true}
@@ -80,7 +81,7 @@ const CarDetails: FC<CarDetailsProps> = ({ isOpen, closeModal, car }) => {
                       </div>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                         <Image
-                          src='/hero.png'
+                          src={generateCarImageUrl(car, '13')}
                           alt='hero'
                           fill={true}
                           priority={true}
@@ -94,12 +95,10 @@ const CarDetails: FC<CarDetailsProps> = ({ isOpen, closeModal, car }) => {
                       </h2>
                       <div className='mt-3 flex flex-wrap gap-4'>
                         {Object.entries(car).map(([key, value]) => (
-                          <div
-                            className='flex justify-between gap-5 w-full text-right'
-                            key={key}>
-                              <h4 className='text-gray capitalize'>{key.split('_').join(' ')}</h4>
-                              <p className='text-black-100 font-semibold'>{value}</p>
-                            </div>
+                          <div className='flex justify-between gap-5 w-full text-right' key={key}>
+                            <h4 className='text-gray capitalize'>{key.split('_').join(' ')}</h4>
+                            <p className='text-black-100 font-semibold'>{value}</p>
+                          </div>
                         ))}
                       </div>
                     </div>

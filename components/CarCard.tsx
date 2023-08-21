@@ -29,6 +29,8 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
 
   const carRent = calculateCarRent(car.city_mpg, car.year);
 
+
+
   return (
     <div className='car-card group'>
       <div className='car-card__content'>
@@ -42,7 +44,13 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
         <span className='self-end text-[14px] font-medium'>/day</span>
       </p>
       <div className='relative w-full h-40 my-3 object-contain'>
-        <Image src='/hero.png' fill={true} alt='hero' priority className='object-contain' />
+        <Image
+          src={generateCarImageUrl(car)}
+          fill={true}
+          alt='hero'
+          priority
+          className='object-contain'
+        />
       </div>
       <div className='relative flex w-full mt-2'>
         <div className='flex group-hover:invisible w-full justify-between text-gray'>
@@ -71,9 +79,23 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
           />
         </div>
       </div>
-      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car}/>
+      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
     </div>
   );
 };
 
 export default CarCard;
+   export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+     const url = new URL('https://cdn.imagin.studio/getimage');
+     const { make, model, year } = car;
+
+     url.searchParams.append('customer', 'hrjavascript-mastery');
+     url.searchParams.append('make', make);
+     url.searchParams.append('modelFamily', model.split(' ')[0]);
+     url.searchParams.append('zoomType', 'fullscreen');
+     url.searchParams.append('modelYear', `${year}`);
+     // url.searchParams.append('zoomLevel', zoomLevel);
+     url.searchParams.append('angle', `${angle}`);
+
+     return `${url}`;
+   };
