@@ -1,4 +1,5 @@
 'use client';
+
 import { FC, useState } from 'react';
 import { CarProps } from '@/types';
 import Image from 'next/image';
@@ -28,8 +29,6 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
   };
 
   const carRent = calculateCarRent(car.city_mpg, car.year);
-
-
 
   return (
     <div className='car-card group'>
@@ -85,17 +84,18 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
 };
 
 export default CarCard;
-   export const generateCarImageUrl = (car: CarProps, angle?: string) => {
-     const url = new URL('https://cdn.imagin.studio/getimage');
-     const { make, model, year } = car;
 
-     url.searchParams.append('customer', 'hrjavascript-mastery');
-     url.searchParams.append('make', make);
-     url.searchParams.append('modelFamily', model.split(' ')[0]);
-     url.searchParams.append('zoomType', 'fullscreen');
-     url.searchParams.append('modelYear', `${year}`);
-     // url.searchParams.append('zoomLevel', zoomLevel);
-     url.searchParams.append('angle', `${angle}`);
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+  const url = new URL('https://cdn.imagin.studio/getimage');
+  const { make, model, year } = car;
 
-     return `${url}`;
-   };
+  url.searchParams.append('customer', 'hrjavascript-mastery');
+  url.searchParams.append('make', make);
+  url.searchParams.append('modelFamily', model.split(' ')[0]);
+  url.searchParams.append('zoomType', 'fullscreen');
+  url.searchParams.append('modelYear', `${year}`);
+  // url.searchParams.append('zoomLevel', zoomLevel);
+  url.searchParams.append('angle', `${angle}`);
+
+  return `${url}`;
+};
