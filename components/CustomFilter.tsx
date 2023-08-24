@@ -53,7 +53,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             leave='transition ease-in duration-100'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'>
-            <Listbox.Options className='custom-filter__options'>
+            <Listbox.Options className='custom-filter__options z-10'>
               {options.map(option => (
                 <Listbox.Option
                   key={option.title}

@@ -12,7 +12,7 @@ import ShowMore from '@/components/ShowMore';
 export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
-    year: searchParams.year || '2022',
+    year: searchParams.year || '',
     fuel: searchParams.fuel,
     limit: searchParams.limit || '10',
     model: searchParams.model,
@@ -48,7 +48,7 @@ export default async function Home({ searchParams }) {
             />
           </section>
         ) : (
-          <div className='home__error-container'>
+          <div className='home__error-container h-[250px]'>
             <h2 className='text-black-100 text-xl font-bold'>Oops, no results</h2>
           </div>
         )}
