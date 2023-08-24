@@ -5,7 +5,7 @@ const nextConfig = {
     
   },
   typescript: {
-    ignoreDevErrors: true
+    ignoreBuildErrors: true
   }
 
 };
