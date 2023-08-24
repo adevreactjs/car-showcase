@@ -34,20 +34,20 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
             afterLeave={() => setQuery('')}>
-            <Combobox.Options className='search-manufacturer__options z-11' static>
+            <Combobox.Options className='search-manufacturer__options z-20' static>
               {filteredManufacturers.map(item => (
                 <Combobox.Option
                   value={item}
                   key={item}
                   className={({ active }) =>
-                    `relative search-manufacturer__option ${
+                    `relative z-11 search-manufacturer__option ${
                       active ? 'bg-primary-blue text-white' : 'text-gray-900'
                     }`
                   }>
                   {({ selected, active }) => (
                     <>
                       <span
-                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                        className={`block truncate z-20 ${selected ? 'font-medium' : 'font-normal'}`}>
                         {item}
                       </span>
                       {selected ? (
