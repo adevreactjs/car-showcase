@@ -26,7 +26,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const handelUpdateParams = (e: { type: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
-    router.push(newPathName);
+    router.push(newPathName, { scroll: false });
   };
 
   return (
