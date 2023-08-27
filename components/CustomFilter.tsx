@@ -1,12 +1,10 @@
 'use client';
 
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Listbox, Transition } from '@headlessui/react';
 import { CustomFilterProps } from '@/types';
-import { updateSearchParams } from '@/utils';
-import { type } from 'os';
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0]);
@@ -25,6 +23,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
 
   const handelUpdateParams = (e: { type: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
+    console.log(newPathName);
 
     router.push(newPathName, { scroll: false });
   };

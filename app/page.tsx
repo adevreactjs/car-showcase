@@ -13,7 +13,7 @@ export default async function Home({ searchParams }) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
     year: searchParams.year || '',
-    fuel: searchParams.fuel,
+    fuel: searchParams.fuel || '',
     limit: searchParams.limit || '10',
     model: searchParams.model,
   });
